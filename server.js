@@ -25,26 +25,33 @@ app.get('/messages', (req, res) => {
     })
 })
 
-// async and await
+//async and await
+//async, only until all await to go through, the await can commit. await just be promise.
+//if the below is not async and await, then anything will be saved, but nothing'll be showed at the same time. In the back, nothing will be removed.
 app.post('/messages', async (req, res) => {
-    var message = new Message(req.body)
 
-    var savedMessage = await message.save()
-    
-    console.log('saved')
+    try {
+        var message = new Message(req.body)
 
-    var censored =  await Message.findOne({message: 'badword'})
+        var savedMessage =  await message.save()
 
-    if (censored)  
-        await Message.remove({ _id: censored.id })
-    else
-        io.emit('message', req.body)
-    res.sendStatus(200)
-    
-    // .catch((err) => {
-    //     res.sendStatus(500)
-    //     return console.error(err)     
-    // })
+        console.log('saved')
+
+        var censored =  await Message.findOne({ message: 'badword' })
+
+        if (censored)
+            await Message.remove({ _id: censored.id })
+        else
+            io.emit('message', req.body)
+        res.sendStatus(200)
+    } catch (error) {
+        res.sendStatus(500)
+        return console.error(error) 
+    }finally{
+        //logger.log('message post called')
+        console.log('message post called')
+    }
+
 })
 
 // Promises and sync
