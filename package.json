@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jasmine",
     "start": "node server.js"
   },
   "keywords": [],
@@ -16,7 +16,8 @@
     "socket.io": "^2.1.1"
   },
   "devDependencies": {
-    "jasmine": "^3.1.0"
+    "jasmine": "^3.1.0",
+    "request": "^2.87.0"
   },
   "description": "from Gavin",
   "repository": {
