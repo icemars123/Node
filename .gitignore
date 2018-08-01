@@ -1,1 +1,2 @@
 echo 'application/cache' >> .gitignore
+node_modules
