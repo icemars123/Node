@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "node",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -15,10 +15,12 @@
     "mongoose": "^4.13.14",
     "socket.io": "^2.1.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jasmine": "^3.1.0"
+  },
   "description": "from Gavin",
   "repository": {
     "type": "git",
-    "url": "from Gavin"
+    "url": "https://github.com/icemars123/Node.git"
   }
 }
