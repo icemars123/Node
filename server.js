@@ -25,6 +25,13 @@ app.get('/messages', (req, res) => {
     })
 })
 
+app.get('/messages/:user', (req, res) => {
+    var user = req.params.user
+    Message.find({name: user}, (err, messages) => {
+        res.send(messages)
+    })
+})
+
 //async and await
 //async, only until all await to go through, the await can commit. await just be promise.
 //if the below is not async and await, then anything will be saved, but nothing'll be showed at the same time. In the back, nothing will be removed.
