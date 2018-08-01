@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 mongoose.Promise = Promise;
 
 var dbUrl = 'mongodb://user:u123456@ds143559.mlab.com:43559/learning-node'
-
+   
 var Message = mongoose.model('Message', {
     name: String,
     message: String
